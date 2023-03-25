@@ -54,20 +54,6 @@ public:
         return result;
     }
 
-    Matrix cross(const Matrix& other) const {
-        if (m_rows != other.getNumRows() || m_cols != other.getNumCols()) {
-            throw std::invalid_argument("Matrices must have the same dimensions");
-        }
-
-        Matrix result(m_rows, m_cols);
-        for (int i = 0; i < m_rows; i++) {
-            for (int j = 0; j < m_cols; j++) {
-                result.set(i, j, get(i, j) * other.get(i, j));
-            }
-        }
-        return result;
-    }
-
     Matrix transpose() const {
         Matrix result(m_cols, m_rows);
         for (int i = 0; i < m_rows; i++) {
